@@ -28,9 +28,9 @@ decompose_date <- function(date, week_style = "nam", use_year = TRUE) {
   date <- as.Date(date)
 
   tibble::tibble(
-    .year = lubridate::year(date),
-    .week = lubridate::week(date),
-    .wday = lubridate::wday(date)
+    .year = lubridate::year(date) %>% as.integer(),
+    .week = lubridate::week(date) %>% as.integer(),
+    .wday = lubridate::wday(date) %>% as.integer()
   )
 
 }
