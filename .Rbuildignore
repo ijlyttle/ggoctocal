@@ -4,3 +4,5 @@
 ^README-.*\.png$
 ^CONDUCT\.md$
 ^data-raw$
+^\.travis\.yml$
+^appveyor\.yml$

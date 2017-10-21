@@ -1,6 +1,10 @@
-the---
+---
 output: github_document
 ---
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggoctocal)](https://cran.r-project.org/package=ggoctocal)
+[![Travis-CI Build Status](https://travis-ci.org/ijlyttle/ggoctocal.svg?branch=master)](https://travis-ci.org/ijlyttle/ggoctocal)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ijlyttle/ggoctocal?branch=master&svg=true)](https://ci.appveyor.com/project/ijlyttle/ggoctocal)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
