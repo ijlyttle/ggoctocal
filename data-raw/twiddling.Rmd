@@ -1,0 +1,34 @@
+---
+title: twiddling
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library("ggoctocal")
+library("tidyverse")
+```
+
+
+```{r}
+data_nam <-
+  data_discrete %>%
+  mutate_decompose_date(week_style = "nam") %>%
+  print(width = 200)
+```
+
+```{r}
+ggplot(data_nam) + 
+  geom_tile(
+    aes(x = .week, y = .wday, 
+        width = 0.925, height = 0.9, 
+        fill = observation)
+  ) + 
+  scale_y_reverse() + 
+  coord_fixed() +
+  theme_minimal() +
+  facet_grid(.year ~ .)
+```
+
+It's clear that we have a problem with the method for assigning weeks in the `"nam"` style. 

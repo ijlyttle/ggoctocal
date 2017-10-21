@@ -19,7 +19,16 @@
 #' }
 #' @export
 #'
-decompose_date <- function(date, week_style = "nam", use_year = TRUE) {
+decompose_date <- function(date, week_style = c("nam", "iso"), use_year = TRUE) {
+
+  week_style <- match.arg(week_style)
+
+  fn <- list(
+    nam = .decompose_date_nam,
+    iso = .decompose_date_iso
+  )
+
+  fn[[week_style]](date)
 
 }
 
@@ -79,12 +88,14 @@ decompose_date <- function(date, week_style = "nam", use_year = TRUE) {
 
 #' @rdname decompose_date
 #'
-#' @return [mutate_ggocto()]:
+#' @param .data `tbl_df` to which to bind new columns
+#'
+#' @return [mutate_decompose_date()]:
 #' `.data`, with additional columns generated using [decompose_date()]
 #' @export
 #'
-mutate_ggocto <- function(.data, date = .data$date, week_style = "nam",
-                          use_year = TRUE) {
+mutate_decompose_date <-
+  function(.data, date = .data$date, week_style = "nam", use_year = TRUE) {
 
   decompose <-
     decompose_date(date, week_style = week_style, use_year = use_year)

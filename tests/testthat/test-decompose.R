@@ -2,6 +2,7 @@ context("decompose")
 
 library("lubridate")
 library("tibble")
+library("dplyr")
 
 test_that("weekday-conversion works", {
 
@@ -14,8 +15,7 @@ test_that("weekday-conversion works", {
 
 })
 
-test_that("decompose_date functions work", {
-
+test_that("decompose functions work", {
 
   dates <-
     c("2009-12-31", "2010-01-01",
@@ -65,7 +65,15 @@ test_that("decompose_date functions work", {
     2018L,   1L,    2L
   )
 
-  expect_identical(.decompose_date_iso(dates), decompose_iso)
-  expect_identical(.decompose_date_nam(dates), decompose_nam)
+  expect_error(decompose_date(dates, "foo"))
+  expect_identical(decompose_date(dates, "iso"), decompose_iso)
+  expect_identical(decompose_date(dates, "nam"), decompose_nam)
+
+  df_dates <- tibble(date = dates)
+  df_nam <- bind_cols(df_dates, decompose_nam)
+  df_iso <- bind_cols(df_dates, decompose_iso)
+
+  expect_identical(mutate_decompose_date(df_dates, week_style = "nam"), df_nam)
+  expect_identical(mutate_decompose_date(df_dates, week_style = "iso"), df_iso)
 
 })

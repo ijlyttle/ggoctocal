@@ -2,19 +2,22 @@
 % Please edit documentation in R/decompose.R
 \name{decompose_date}
 \alias{decompose_date}
-\alias{mutate_ggocto}
+\alias{mutate_decompose_date}
 \title{Decompose a date into components}
 \usage{
-decompose_date(date, use_iso = FALSE, use_year = TRUE)
+decompose_date(date, week_style = c("nam", "iso"), use_year = TRUE)
 
-mutate_ggocto(.data, date = .data$date, use_iso = FALSE, use_year = TRUE)
+mutate_decompose_date(.data, date = .data$date, week_style = "nam",
+  use_year = TRUE)
 }
 \arguments{
 \item{date}{\code{Date}, date to decompose}
 
-\item{use_iso}{\code{logical}, use ISO weeks (vs. US-style weeks)}
+\item{week_style}{\code{character}, style to use: \code{"nam"}, \code{"iso"}}
 
 \item{use_year}{\code{logical}, use \code{year} as a variable}
+
+\item{.data}{\code{tbl_df} to which to bind new columns}
 }
 \value{
 \link{decompose_date}:
@@ -22,12 +25,17 @@ mutate_ggocto(.data, date = .data$date, use_iso = FALSE, use_year = TRUE)
 \describe{
 \item{.year}{\code{integer}, year to which the week belongs}
 \item{.week}{\code{integer}, number of week}
-\item{.day_of_week}{\code{integer}, identifies the day in the week}
+\item{.wday}{\code{integer}, identifies the day in the week}
 }
 
-\code{\link[=mutate_ggocto]{mutate_ggocto()}}:
-\code{.data}, with additional columns from \code{\link[=decompose_date]{decompose_date()}}
+\code{\link[=mutate_decompose_date]{mutate_decompose_date()}}:
+\code{.data}, with additional columns generated using \code{\link[=decompose_date]{decompose_date()}}
 }
 \description{
-Decompose a date into components
+TODO - better names for these functions
+}
+\details{
+One is used to operate on a vector, the other to operate on a data frame.
+
+Talk about ISO weeks, talk about using years.
 }
