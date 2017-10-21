@@ -1,0 +1,74 @@
+---
+title: Sample data
+output: github_document
+---
+
+It will be useful to have some sample data.
+
+```{r}
+library("lubridate")
+library("tibble")
+library("dplyr")
+```
+
+This is a fake dataset to test a fake model to determine if a day is a weekend. Our dataset will include two years of dates.
+
+```{r}
+set.seed(3.14159)
+
+is_weekend <- function(date) {
+  lubridate::wday(date) %in% c(1L, 7L)
+}
+
+probability_weekend <- function(obs) {
+  
+  n_obs <- length(obs)
+  
+  logodds_weekday <- rnorm(n_obs, mean = -2, sd = 1)
+  logodds_weekend <- rnorm(n_obs, mean =  2, sd = 1)
+  
+  logodds <- dplyr::case_when(
+    obs == "weekday" ~ logodds_weekday,
+    obs == "weekend" ~ logodds_weekend,
+    TRUE ~ NA_real_
+  )
+  
+  odds <- plogis(logodds)
+  
+  odds
+}
+
+data_weekend <- 
+  tibble(
+    date = seq(as.Date("2015-01-01"), as.Date("2016-12-31"), by = 1),
+    observation = case_when(
+      is_weekend(date) ~ "weekend",
+      TRUE ~ "weekday"
+    ),
+    probability = probability_weekend(observation),
+    prediction = case_when(
+      probability > 0.5 ~ "weekend",
+      probability <= 0.5 ~ "weekday",
+      TRUE ~ NA_character_
+    ),
+    strength = abs(probability - 0.5) / 0.5
+  )
+```
+
+```{r}
+print(data_weekend)
+```
+
+Variable        | Type        | Description
+--------------- | ----------- | -------------------------------------------------
+`date`          | `Date`      | date of the observation
+`observation`   | `character` | indicates if this is a `"weekend"` or `"weekday"`
+`probability`   | `double`    | "model" probability that this is a `"weekend"`
+`prediction`    | `character` | "model" prediction of type of day
+`strength`      | `double`    | "model" probability that this is a `"weekend"`
+
+## Write it out
+
+```{r}
+devtools::use_data(data_weekend)
+```
