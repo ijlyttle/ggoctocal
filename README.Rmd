@@ -2,10 +2,10 @@
 output: github_document
 ---
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/septimanr)](https://cran.r-project.org/package=septimanr)
-[![Travis-CI Build Status](https://travis-ci.org/ijlyttle/septimanr.svg?branch=master)](https://travis-ci.org/ijlyttle/septimanr)
-appveyor.com/project/ijlyttle/septimanr)
-[![Coverage Status](https://img.shields.io/codecov/c/github/ijlyttle/septimanr/master.svg)](https://codecov.io/github/ijlyttle/septimanr?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/septimr)](https://cran.r-project.org/package=septimr)
+[![Travis-CI Build Status](https://travis-ci.org/ijlyttle/septimr.svg?branch=master)](https://travis-ci.org/ijlyttle/septimr)
+appveyor.com/project/ijlyttle/septimr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/ijlyttle/septimr/master.svg)](https://codecov.io/github/ijlyttle/septimr?branch=master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -17,17 +17,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# septimanr
+# septimr
 
-The goal of septimanr is to ...
+The goal of septimr is to ...
 
 ## Installation
 
-You can install septimanr from github with:
+You can install septimr from github with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("ijlyttle/septimanr")
+devtools::install_github("ijlyttle/septimr")
 ```
 
 ## Example

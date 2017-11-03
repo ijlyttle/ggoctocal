@@ -1,4 +1,4 @@
 library(testthat)
-library(septimanr)
+library(septimr)
 
-test_check("septimanr")
+test_check("septimr")

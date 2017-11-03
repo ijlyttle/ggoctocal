@@ -1,4 +1,4 @@
-Package: septimanr
+Package: septimr
 Title: Calendar Maps for ggplot2, Inspired by Github Contribution Maps 
 Version: 0.0.0.9000
 Authors@R: c(
@@ -10,8 +10,8 @@ Depends: R (>= 3.4.1)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/ijlyttle/septimanr
-BugReports: https://github.com/ijlyttle/septimanr/issues
+URL: https://github.com/ijlyttle/septimr
+BugReports: https://github.com/ijlyttle/septimr/issues
 RoxygenNote: 6.0.1
 Roxygen: list(markdown = TRUE)
 Suggests: testthat,
