@@ -2,9 +2,9 @@
 output: github_document
 ---
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggoctocal)](https://cran.r-project.org/package=ggoctocal)
-[![Travis-CI Build Status](https://travis-ci.org/ijlyttle/ggoctocal.svg?branch=master)](https://travis-ci.org/ijlyttle/ggoctocal)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ijlyttle/ggoctocal?branch=master&svg=true)](https://ci.appveyor.com/project/ijlyttle/ggoctocal)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/septimanr)](https://cran.r-project.org/package=septimanr)
+[![Travis-CI Build Status](https://travis-ci.org/ijlyttle/septimanr.svg?branch=master)](https://travis-ci.org/ijlyttle/septimanr)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ijlyttle/septimanr?branch=master&svg=true)](https://ci.appveyor.com/project/ijlyttle/septimanr)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -16,17 +16,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ggoctocal
+# septimanr
 
-The goal of ggoctocal is to ...
+The goal of septimanr is to ...
 
 ## Installation
 
-You can install ggoctocal from github with:
+You can install septimanr from github with:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("ijlyttle/ggoctocal")
+devtools::install_github("ijlyttle/septimanr")
 ```
 
 ## Example

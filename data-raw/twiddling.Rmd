@@ -6,7 +6,7 @@ editor_options:
 ---
 
 ```{r}
-library("ggoctocal")
+library("septimanr")
 library("tidyverse")
 ```
 
