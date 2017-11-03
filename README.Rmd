@@ -4,7 +4,8 @@ output: github_document
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/septimanr)](https://cran.r-project.org/package=septimanr)
 [![Travis-CI Build Status](https://travis-ci.org/ijlyttle/septimanr.svg?branch=master)](https://travis-ci.org/ijlyttle/septimanr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ijlyttle/septimanr?branch=master&svg=true)](https://ci.appveyor.com/project/ijlyttle/septimanr)
+appveyor.com/project/ijlyttle/septimanr)
+[![Coverage Status](https://img.shields.io/codecov/c/github/ijlyttle/septimanr/master.svg)](https://codecov.io/github/ijlyttle/septimanr?branch=master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
