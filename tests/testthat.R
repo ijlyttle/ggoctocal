@@ -1,4 +1,4 @@
 library(testthat)
-library(ggoctocal)
+library(septimanr)
 
-test_check("ggoctocal")
+test_check("septimanr")

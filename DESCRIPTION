@@ -1,4 +1,4 @@
-Package: ggoctocal
+Package: septimanr
 Title: Calendar Maps for ggplot2, Inspired by Github Contribution Maps 
 Version: 0.0.0.9000
 Authors@R: c(
