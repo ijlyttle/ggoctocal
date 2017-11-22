@@ -1,0 +1,46 @@
+---
+title: CRAN downloads
+output: github_document
+---
+
+The [cranlogs packge]() will be super-useful for us to create some sample daily-data.
+
+```{r setup}
+library("lubridate")
+library("tibble")
+library("dplyr")
+library("cranlogs")
+```
+
+This is a fake dataset to test a fake model to determine if a day is a weekend. Our dataset will include two years of dates.
+
+```{r}
+cran_sample <- 
+  cran_downloads(
+    packages = c("ggplot2", "dplyr"),
+    from = "2015-01-01",
+    to = "2016-12-31"
+  ) %>%
+  transmute(
+    date,
+    package,
+    count = as.integer(count)
+  ) %>% 
+  as_tibble()
+```
+
+```{r}
+print(cran_sample)
+```
+
+Variable  | Type        | Description
+----------| ----------- | -------------------------------------------------
+`date`    | `Date`      | date of the observation
+`package` | `character` | name of the package
+`count`   | `integer`   | number of downloads, according to the RStudio logs
+
+## Write it out
+
+```{r}
+devtools::use_data(cran_sample, overwrite = TRUE)
+```

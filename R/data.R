@@ -1,13 +1,14 @@
 #' Sample data-indexed dataset.
 #'
-#' A dataset to use to test data-based visualizations.
+#' Daily downloads from RStudio CRAN mirror for __ggplot2__ and __dplyr__ for
+#' the years 2015 and 2016.
 #'
-#' @format A data frame with 731 observations of 5 variables:
+#' @format A data frame with 1462 observations of 3 variables:
 #' \describe{
 #'   \item{date}{`Date`, date of the observation}
-#'   \item{observation}{`character`, indicates if this is a "weekend" or "weekday"}
-#'   \item{probability}{`double`, "model" probability that this is a "weekend"}
-#'   \item{prediction}{`character`, "model" prediction of type of day}
-#'   \item{strength}{`double`, "model" probability that this is a "weekend"}
+#'   \item{package}{`character`, name of the package}
+#'   \item{count}{`integer`, number of downloads according to the RStudio logs}
 #' }
-"data_weekend"
+#' @source Downloaded using the
+#'   [cranlogs](https://CRAN.R-project.org/package=cranlogs) package.
+"cran_sample"

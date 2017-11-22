@@ -8,27 +8,54 @@ editor_options:
 ```{r}
 library("septimr")
 library("tidyverse")
+library("viridisLite")
+library("plotly")
 ```
 
 
 ```{r}
-data_nam <-
-  data_discrete %>%
+tmp <- 
+  cran_sample %>%
+  mutate(data = map(date, .decompose_date_nam_new)) %>%
+  unnest() %>%
+  print()
+```
+
+```{r}
+cran_nam <-
+  cran_sample %>%
   mutate_decompose_date(week_style = "nam") %>%
   print(width = 200)
 ```
 
 ```{r}
-ggplot(data_nam) + 
-  geom_tile(
-    aes(x = .week, y = .wday, 
-        width = 0.925, height = 0.9, 
-        fill = observation)
-  ) + 
-  scale_y_reverse() + 
-  coord_fixed() +
-  theme_minimal() +
-  facet_grid(.year ~ .)
+wkplot <-
+  cran_nam %>%
+  filter(package == "ggplot2", count > 0) %>%
+  ggplot() + 
+    geom_tile(
+      aes(x = .week, y = .wday, fill = count),
+      width = 0.925, height = 0.9
+    ) + 
+    scale_y_reverse() + 
+    scale_fill_gradientn(colours = viridis(256, option = "D")) +
+    coord_fixed() +
+    theme_minimal() +
+    theme(
+      legend.direction = "horizontal", 
+      legend.position = "bottom",
+      axis.line = element_blank(), 
+      # axis.text = element_blank(),
+      axis.ticks = element_blank(), 
+      axis.title = element_blank(), 
+      panel.grid = element_blank()
+    ) +
+    facet_grid(.year ~ .) 
+
+# ggplotly(wkplot)
+wkplot
 ```
 
 It's clear that we have a problem with the method for assigning weeks in the `"nam"` style. 
+
+

@@ -7,8 +7,6 @@
 #' @importFrom rlang quos
 #' @importFrom rlang UQ
 #' @importFrom rlang UQS
-#' @importFrom rlang !!
-#' @importFrom rlang !!!
 #' @importFrom rlang .data
 #'
 #' @importFrom purrr %||%

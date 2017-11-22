@@ -44,6 +44,19 @@ decompose_date <- function(date, week_style = c("nam", "iso"), use_year = TRUE) 
 
 }
 
+
+.decompose_date_nam_new <- function(date) {
+
+  date <- as.Date(date)
+
+  data.frame(
+    .year = lubridate::year(date) %>% as.integer(),
+    .week = lubridate::week(date) %>% as.integer(),
+    .wday = lubridate::wday(date) %>% as.integer()
+  )
+
+}
+
 .decompose_date_iso <- function(date) {
 
   date <- as.Date(date)
@@ -51,9 +64,9 @@ decompose_date <- function(date, week_style = c("nam", "iso"), use_year = TRUE) 
   dec_nam <- .decompose_date_nam(date)
 
   # convert nam weekday to iso weeksay
-  .wday_iso <- .wday_nam_to_iso(dec_nam$.wday)
+  .wday_iso <- .wday_nam_to_iso(dec_nam$.wday) %>% as.integer()
 
-  .week_iso <- lubridate::isoweek(date)
+  .week_iso <- lubridate::isoweek(date) %>% as.integer()
 
   # adjust year, if needed
   .year_iso <-
@@ -64,7 +77,8 @@ decompose_date <- function(date, week_style = c("nam", "iso"), use_year = TRUE) 
       (.week_iso > 48L) & (dec_nam$.week < 3L) ~ dec_nam$.year - 1L,
       # iso week and nam week "agree"
       TRUE ~ dec_nam$.year
-    )
+    ) %>%
+    as.integer()
 
   tibble::tibble(.year = .year_iso, .week = .week_iso, .wday = .wday_iso)
 }
